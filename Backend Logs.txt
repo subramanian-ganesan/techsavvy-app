@@ -1,0 +1,95 @@
+ubuntu@ip-172-31-88-56:~/techsavvy-app$ docker-compose up --build
+WARN[0000] /home/ubuntu/techsavvy-app/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+[+] Building 0.4s (11/11) FINISHED
+ => [internal] load local bake definitions                                                                                      0.0s
+ => => reading from stdin 370B                                                                                                  0.0s
+ => [internal] load build definition from Dockerfile                                                                            0.0s
+ => => transferring dockerfile: 329B                                                                                            0.0s
+ => [internal] load metadata for docker.io/library/python:3.11-slim                                                             0.2s
+ => [internal] load .dockerignore                                                                                               0.0s
+ => => transferring context: 2B                                                                                                 0.0s
+ => [1/4] FROM docker.io/library/python:3.11-slim@sha256:bbfdc132301b3257cbf23c65c26329572575385e7b9ad80ec6d7df3c5cd47f36       0.0s
+ => => resolve docker.io/library/python:3.11-slim@sha256:bbfdc132301b3257cbf23c65c26329572575385e7b9ad80ec6d7df3c5cd47f36       0.0s
+ => [internal] load build context                                                                                               0.0s
+ => => transferring context: 94B                                                                                                0.0s
+ => CACHED [2/4] WORKDIR /usr/src/app                                                                                           0.0s
+ => CACHED [3/4] COPY app/ ./app/                                                                                               0.0s
+ => CACHED [4/4] RUN pip install --no-cache-dir -r app/requirements.txt                                                         0.0s
+ => exporting to image                                                                                                          0.0s
+ => => exporting layers                                                                                                         0.0s
+ => => writing image sha256:9af334098ea324bec1bd7107ba7465c8e391c3571db8d07a197738e6f10a41d1                                    0.0s
+ => => naming to docker.io/library/techsavvy-app-flask-app                                                                      0.0s
+ => resolving provenance for metadata file                                                                                      0.0s
+[+] Running 1/1
+ ✔ flask-app  Built                                                                                                             0.0s
+Attaching to flask_app, redis
+redis      | Starting Redis Server
+redis      | 1:C 22 Jul 2025 15:18:40.072 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+redis      | 1:C 22 Jul 2025 15:18:40.072 # WARNING Your system is configured to use the 'xen' clocksource which might lead to degraded performance. Check the result of the [slow-clocksource] system check: run 'redis-server --check-system' to check if the system's clocksource isn't degrading performance.
+redis      | 1:C 22 Jul 2025 15:18:40.072 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis      | 1:C 22 Jul 2025 15:18:40.072 * Redis version=8.0.3, bits=64, commit=00000000, modified=1, pid=1, just started
+redis      | 1:C 22 Jul 2025 15:18:40.073 * Configuration loaded
+redis      | 1:M 22 Jul 2025 15:18:40.076 * monotonic clock: POSIX clock_gettime
+redis      | 1:M 22 Jul 2025 15:18:40.077 * Running mode=standalone, port=6379.
+redis      | 1:M 22 Jul 2025 15:18:40.078 * <bf> RedisBloom version 8.0.1 (Git=unknown)
+redis      | 1:M 22 Jul 2025 15:18:40.078 * <bf> Registering configuration options: [
+redis      | 1:M 22 Jul 2025 15:18:40.079 * <bf>        { bf-error-rate       :      0.01 }
+redis      | 1:M 22 Jul 2025 15:18:40.079 * <bf>        { bf-initial-size     :       100 }
+redis      | 1:M 22 Jul 2025 15:18:40.079 * <bf>        { bf-expansion-factor :         2 }
+redis      | 1:M 22 Jul 2025 15:18:40.080 * <bf>        { cf-bucket-size      :         2 }
+redis      | 1:M 22 Jul 2025 15:18:40.080 * <bf>        { cf-initial-size     :      1024 }
+redis      | 1:M 22 Jul 2025 15:18:40.080 * <bf>        { cf-max-iterations   :        20 }
+redis      | 1:M 22 Jul 2025 15:18:40.080 * <bf>        { cf-expansion-factor :         1 }
+redis      | 1:M 22 Jul 2025 15:18:40.080 * <bf>        { cf-max-expansions   :        32 }
+redis      | 1:M 22 Jul 2025 15:18:40.080 * <bf> ]
+redis      | 1:M 22 Jul 2025 15:18:40.081 * Module 'bf' loaded from /usr/local/lib/redis/modules//redisbloom.so
+redis      | 1:M 22 Jul 2025 15:18:40.089 * <search> Redis version found by RedisSearch : 8.0.3 - oss
+redis      | 1:M 22 Jul 2025 15:18:40.089 * <search> RediSearch version 8.0.1 (Git=5688fcc)
+redis      | 1:M 22 Jul 2025 15:18:40.089 * <search> Low level api version 1 initialized successfully
+redis      | 1:M 22 Jul 2025 15:18:40.089 * <search> gc: ON, prefix min length: 2, min word length to stem: 4, prefix max expansions: 200, query timeout (ms): 500, timeout policy: return, cursor read size: 1000, cursor max idle (ms): 300000, max doctable size: 1000000, max number of search results:  1000000,
+redis      | 1:M 22 Jul 2025 15:18:40.089 * <search> Initialized thread pools!
+redis      | 1:M 22 Jul 2025 15:18:40.089 * <search> Disabled workers threadpool of size 0
+redis      | 1:M 22 Jul 2025 15:18:40.089 * <search> Subscribe to config changes
+redis      | 1:M 22 Jul 2025 15:18:40.089 * <search> Enabled role change notification
+redis      | 1:M 22 Jul 2025 15:18:40.089 * <search> Cluster configuration: AUTO partitions, type: 0, coordinator timeout: 0ms
+redis      | 1:M 22 Jul 2025 15:18:40.091 * <search> Register write commands
+redis      | 1:M 22 Jul 2025 15:18:40.091 * Module 'search' loaded from /usr/local/lib/redis/modules//redisearch.so
+redis      | 1:M 22 Jul 2025 15:18:40.091 * <timeseries> RedisTimeSeries version 80001, git_sha=577bfa8b5909e7ee572f0b651399be8303dc6641
+redis      | 1:M 22 Jul 2025 15:18:40.091 * <timeseries> Redis version found by RedisTimeSeries : 8.0.3 - oss
+redis      | 1:M 22 Jul 2025 15:18:40.091 * <timeseries> Registering configuration options: [
+redis      | 1:M 22 Jul 2025 15:18:40.091 * <timeseries>        { ts-compaction-policy   :              }
+redis      | 1:M 22 Jul 2025 15:18:40.091 * <timeseries>        { ts-num-threads         :            3 }
+redis      | 1:M 22 Jul 2025 15:18:40.091 * <timeseries>        { ts-retention-policy    :            0 }
+redis      | 1:M 22 Jul 2025 15:18:40.091 * <timeseries>        { ts-duplicate-policy    :        block }
+redis      | 1:M 22 Jul 2025 15:18:40.091 * <timeseries>        { ts-chunk-size-bytes    :         4096 }
+redis      | 1:M 22 Jul 2025 15:18:40.091 * <timeseries>        { ts-encoding            :   compressed }
+redis      | 1:M 22 Jul 2025 15:18:40.092 * <timeseries>        { ts-ignore-max-time-diff:            0 }
+redis      | 1:M 22 Jul 2025 15:18:40.092 * <timeseries>        { ts-ignore-max-val-diff :     0.000000 }
+redis      | 1:M 22 Jul 2025 15:18:40.092 * <timeseries> ]
+redis      | 1:M 22 Jul 2025 15:18:40.092 * <timeseries> Detected redis oss
+redis      | 1:M 22 Jul 2025 15:18:40.092 * Module 'timeseries' loaded from /usr/local/lib/redis/modules//redistimeseries.so
+redis      | 1:M 22 Jul 2025 15:18:40.097 * <ReJSON> Created new data type 'ReJSON-RL'
+redis      | 1:M 22 Jul 2025 15:18:40.098 * <ReJSON> version: 80001 git sha: unknown branch: unknown
+redis      | 1:M 22 Jul 2025 15:18:40.099 * <ReJSON> Exported RedisJSON_V1 API
+redis      | 1:M 22 Jul 2025 15:18:40.099 * <ReJSON> Exported RedisJSON_V2 API
+redis      | 1:M 22 Jul 2025 15:18:40.099 * <ReJSON> Exported RedisJSON_V3 API
+redis      | 1:M 22 Jul 2025 15:18:40.099 * <ReJSON> Exported RedisJSON_V4 API
+redis      | 1:M 22 Jul 2025 15:18:40.099 * <ReJSON> Exported RedisJSON_V5 API
+redis      | 1:M 22 Jul 2025 15:18:40.099 * <ReJSON> Enabled diskless replication
+redis      | 1:M 22 Jul 2025 15:18:40.099 * <ReJSON> Initialized shared string cache, thread safe: false.
+redis      | 1:M 22 Jul 2025 15:18:40.099 * Module 'ReJSON' loaded from /usr/local/lib/redis/modules//rejson.so
+redis      | 1:M 22 Jul 2025 15:18:40.099 * <search> Acquired RedisJSON_V5 API
+redis      | 1:M 22 Jul 2025 15:18:40.102 * Server initialized
+redis      | 1:M 22 Jul 2025 15:18:40.102 * Ready to accept connections tcp
+flask_app  |  * Serving Flask app 'app'
+flask_app  |  * Debug mode: off
+flask_app  | WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+flask_app  |  * Running on all addresses (0.0.0.0)
+flask_app  |  * Running on http://127.0.0.1:5000
+flask_app  |  * Running on http://172.18.0.3:5000
+flask_app  | Press CTRL+C to quit
+flask_app  | 106.51.176.133 - - [22/Jul/2025 15:18:47] "GET / HTTP/1.1" 200 -
+flask_app  | 106.51.176.133 - - [22/Jul/2025 15:18:53] "GET / HTTP/1.1" 200 -
+
+
+w Enable Watch
